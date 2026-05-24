@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TauxNet — Comparez, Économisez, Empruntez mieux</title>
+<meta name="description" content="Comparez les meilleurs taux de crédit immobilier, rachat de crédit, prêt conso et travaux. Simulation gratuite, réponse en 2 minutes, sans engagement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#091525;--navy2:#132240;--navy3:#1e3358;
+  --gold:#c9a84c;--gold2:#e8c97a;--gold3:#f5e2b0;
+  --cream:#f6f1e9;--cream2:#ede6d8;
+  --white:#ffffff;--slate:#7a8a9e;--slate2:#a8b5c4;
+  --teal:#0f6b5e;--teal2:#1a8a7a;--teal3:#e0f4f1;
+  --red:#b03030;--red2:#fdf0f0;
+  --green:#1a5e38;--green2:#e6f5ee;
+  --amber:#8a5a0a;--amber2:#fff8e6;
+  --shadow-sm:0 1px 4px rgba(9,21,37,.06);
+  --shadow:0 4px 20px rgba(9,21,37,.1);
+  --shadow-lg:0 12px 40px rgba(9,21,37,.14);
+  --r:10px;--r-lg:16px;--r-xl:24px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;font-size:15px;overflow-x:hidden;max-width:100vw;width:100%}
+
+.sp-tab{padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:var(--white);color:var(--slate);border:1.5px solid var(--cream2);transition:.15s;font-family:'DM Sans',sans-serif}
+.sp-tab:hover{border-color:var(--navy);color:var(--navy)}
+.sp-on{background:var(--navy)!important;color:var(--white)!important;border-color:var(--navy)!important}
+@media(max-width:700px){.sim-page-grid{grid-template-columns:1fr!important}}
+
+/* ─── TRUST STRIP ─── */
+.trust-strip{background:var(--white);border-top:1px solid var(--cream2);border-bottom:1px solid var(--cream2);overflow:hidden;padding:0;position:relative}
+.trust-strip::before,.trust-strip::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.trust-strip::before{left:0;background:linear-gradient(to right,var(--white),transparent)}
+.trust-strip::after{right:0;background:linear-gradient(to left,var(--white),transparent)}
+.trust-strip-inner{padding:14px 0}
+.strip-track{display:flex;gap:0;animation:scroll-strip 38s linear infinite;width:max-content}
+.strip-track:hover{animation-play-state:paused}
+@keyframes scroll-strip{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.strip-item{display:flex;align-items:center;gap:10px;padding:8px 28px;border-right:1px solid var(--cream2);flex-shrink:0;white-space:nowrap}
+.strip-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;flex-shrink:0}
+.strip-info{}
+.strip-name{font-size:12px;font-weight:700;color:var(--navy);line-height:1}
+.strip-stars{font-size:11px;color:var(--gold);line-height:1.3}
+.strip-count{font-size:10px;color:var(--slate);line-height:1}
+.strip-free{display:flex;align-items:center;gap:8px;padding:8px 28px;border-right:1px solid var(--cream2);flex-shrink:0}
+.strip-free-badge{background:var(--teal3);color:var(--teal);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap}
+
+/* ─── NAV ─── */
+nav{position:sticky;top:0;z-index:100;background:rgba(9,21,37,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:0 16px;width:100%;box-sizing:border-box}
+.nav-inner{max-width:1100px;margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between;gap:8px;overflow:hidden}
+.logo{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--white);letter-spacing:-.5px}
+.logo span{color:var(--gold2)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{color:var(--slate2);font-size:13px;font-weight:500;text-decoration:none;padding:6px 10px;border-radius:7px;transition:.15s;white-space:nowrap}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.08)}
+.nav-cta{background:var(--gold);color:var(--navy);font-weight:700;font-size:13px;padding:8px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:.15s;flex-shrink:0}
+.nav-cta:hover{background:var(--gold2)}
+
+/* ─── HERO ─── */
+.hero{background:var(--navy);position:relative;overflow:hidden;padding:40px 16px 0;width:100%;box-sizing:border-box}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:var(--cream);border-radius:40px 40px 0 0}
+.hero-bg{position:absolute;top:-100px;right:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start;position:relative;z-index:1}
+.hero-left{}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:5px 14px;font-size:11px;color:var(--gold2);font-weight:600;letter-spacing:.6px;text-transform:uppercase;margin-bottom:20px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--gold2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-h1{font-family:'Fraunces',serif;font-weight:300;font-size:46px;line-height:1.15;color:var(--white);margin-bottom:14px}
+.hero-h1 em{font-style:italic;color:var(--gold2)}
+.hero-h1 strong{font-weight:600}
+.hero-sub{font-size:16px;color:var(--slate2);line-height:1.6;margin-bottom:28px;max-width:480px}
+.hero-trust{display:flex;gap:24px;flex-wrap:wrap}
+.ht{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--slate2)}
+.ht-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ─── SIMULATOR CARD ─── */
+.sim-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-lg);overflow:hidden;margin-bottom:40px}
+.sim-tabs{display:flex;background:var(--cream);border-bottom:1px solid var(--cream2)}
+.sim-tab{flex:1;padding:12px 8px;font-size:12px;font-weight:500;text-align:center;cursor:pointer;background:none;border:none;color:var(--slate);transition:.15s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+.sim-tab.on{background:var(--white);color:var(--navy);font-weight:700;border-bottom:2px solid var(--gold)}
+.sim-body{padding:22px}
+.sim-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.sim-group{}
+.sim-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--slate);margin-bottom:6px}
+.sim-val{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--navy);margin-bottom:5px}
+input[type=range]{width:100%;height:3px;accent-color:var(--gold);cursor:pointer}
+.sim-result{background:var(--navy);border-radius:var(--r);padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.sr-item{text-align:center}
+.sr-num{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--gold2)}
+.sr-lbl{font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.btn-primary{width:100%;padding:14px;background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;border:none;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-primary svg{width:16px;height:16px}
+
+/* ─── SECTION LAYOUT ─── */
+section{padding:48px 16px;width:100%;box-sizing:border-box}
+.section-inner{max-width:1100px;margin:0 auto;width:100%}
+.section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);margin-bottom:10px}
+.section-h{font-family:'Fraunces',serif;font-weight:300;font-size:34px;line-height:1.2;color:var(--navy);margin-bottom:8px}
+.section-h strong{font-weight:600}
+.section-sub{font-size:15px;color:var(--slate);max-width:520px;line-height:1.6}
+
+/* ─── QUIZ ─── */
+#quiz{background:var(--white)}
+.quiz-wrap{max-width:680px;margin:0 auto}
+.quiz-progress{display:flex;gap:4px;margin-bottom:28px}
+.qp{height:3px;flex:1;border-radius:2px;background:var(--cream2);transition:.4s}
+.qp.done{background:var(--gold)}
+.qp.active{background:var(--navy)}
+.quiz-step{display:none;animation:fadeUp .3s ease}
+.quiz-step.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.quiz-q{font-family:'Fraunces',serif;font-weight:300;font-size:26px;color:var(--navy);margin-bottom:6px}
+.quiz-hint{font-size:13px;color:var(--slate);margin-bottom:24px}
+.quiz-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quiz-opt{padding:16px;background:var(--cream);border:2px solid transparent;border-radius:var(--r);cursor:pointer;transition:.15s;font-size:14px;font-weight:500;color:var(--navy);text-align:left;display:flex;align-items:center;gap:10px}
+.quiz-opt:hover{border-color:var(--gold);background:var(--white)}
+.quiz-opt.sel{border-color:var(--navy);background:var(--navy);color:var(--white)}
+.quiz-opt-icon{font-size:22px;flex-shrink:0}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.btn-back{background:none;border:none;color:var(--slate);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;padding:8px 0}
+.btn-next{background:var(--navy);color:var(--white);font-weight:600;font-size:14px;padding:11px 28px;border:none;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-next:hover{background:var(--navy2)}
+.quiz-result{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r-lg);padding:32px;color:var(--white);text-align:center}
+.qr-badge{background:var(--gold);color:var(--navy);font-weight:700;font-size:12px;padding:4px 14px;border-radius:20px;display:inline-block;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+.qr-h{font-family:'Fraunces',serif;font-size:26px;font-weight:300;margin-bottom:8px}
+.qr-h em{font-style:italic;color:var(--gold2)}
+.qr-sub{font-size:14px;color:var(--slate2);margin-bottom:24px;line-height:1.6}
+.qr-offers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.qro{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:14px;text-align:center}
+.qro-name{font-weight:600;font-size:13px;margin-bottom:4px}
+.qro-rate{font-family:'Fraunces',serif;font-size:20px;color:var(--gold2)}
+.qro-cpl{font-size:10px;color:var(--slate2);margin-top:2px}
+.btn-quiz-cta{background:var(--gold);color:var(--navy);font-weight:700;font-size:15px;padding:14px 32px;border:none;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;width:100%}
+.btn-quiz-cta:hover{background:var(--gold2)}
+
+/* ─── OFFERS ─── */
+#offers{background:var(--cream)}
+.offers-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;flex-wrap:wrap;gap:16px}
+.offers-filters{display:flex;gap:6px;flex-wrap:wrap}
+.filter-btn{padding:7px 14px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid transparent;background:var(--white);color:var(--slate);transition:.15s;font-family:'DM Sans',sans-serif}
+.filter-btn.on{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.filter-btn:hover:not(.on){border-color:var(--navy);color:var(--navy)}
+.offers-grid{display:flex;flex-direction:column;gap:12px}
+.offer-card{background:var(--white);border-radius:var(--r-lg);border:1.5px solid transparent;padding:16px;display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;transition:.2s;cursor:pointer;position:relative;box-shadow:var(--shadow-sm);width:100%;box-sizing:border-box;min-width:0}
+.offer-card:hover{border-color:var(--gold);box-shadow:var(--shadow);transform:translateY(-2px)}
+.offer-card.featured{border-color:var(--gold)}
+.offer-badge{position:absolute;top:-11px;left:20px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.4px}
+.offer-logo{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.offer-info{}
+.offer-name{font-weight:700;font-size:16px;color:var(--navy);margin-bottom:3px}
+.offer-desc{font-size:13px;color:var(--slate);margin-bottom:6px}
+.offer-tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px}
+.tag-green{background:var(--green2);color:var(--green)}
+.tag-amber{background:var(--amber2);color:var(--amber)}
+.tag-teal{background:var(--teal3);color:var(--teal)}
+.offer-right{text-align:right;flex-shrink:0}
+.offer-rate-big{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--navy);line-height:1}
+.offer-rate-lbl{font-size:10px;color:var(--slate);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.offer-cpl{font-size:12px;font-weight:700;color:var(--teal);margin-top:8px;display:flex;align-items:center;justify-content:flex-end;gap:4px}
+.offer-cpl::before{content:'●';font-size:7px}
+.offer-cta{margin-top:8px;background:var(--navy);color:var(--white);font-weight:600;font-size:12px;padding:8px 16px;border:none;border-radius:7px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s;white-space:nowrap}
+.offer-cta:hover{background:var(--navy2)}
+.transparency{background:rgba(15,107,94,.08);border:1px solid rgba(15,107,94,.2);border-radius:var(--r);padding:14px 18px;margin-bottom:24px;font-size:13px;color:var(--teal);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.transparency svg{width:18px;height:18px;flex-shrink:0;margin-top:1px}
+
+/* ─── CALCULATOR ─── */
+#calculator{background:var(--white)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.calc-left{}
+.calc-card{background:var(--cream);border-radius:var(--r-lg);padding:28px}
+.calc-row{margin-bottom:18px}
+.calc-lbl{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--slate);margin-bottom:8px;display:flex;justify-content:space-between}
+.calc-lbl span{font-weight:700;font-size:14px;color:var(--navy);text-transform:none;letter-spacing:0}
+.calc-result-card{background:var(--navy);border-radius:var(--r-lg);padding:28px;position:sticky;top:80px}
+.crc-title{font-size:12px;color:var(--slate2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px}
+.crc-big{font-family:'Fraunces',serif;font-size:48px;font-weight:600;color:var(--gold2);line-height:1;margin-bottom:6px}
+.crc-sub{font-size:14px;color:var(--slate2);margin-bottom:24px}
+.crc-breakdown{border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+.crc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0}
+.crc-row-label{color:var(--slate2)}
+.crc-row-val{font-weight:600;color:var(--white)}
+.crc-row-val.positive{color:var(--gold2)}
+.btn-calc-cta{width:100%;margin-top:20px;padding:14px;background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;border:none;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-calc-cta:hover{background:var(--gold2)}
+
+/* ─── TESTIMONIALS ─── */
+#testimonials{background:var(--navy);overflow:hidden;position:relative}
+#testimonials::before{content:'';position:absolute;top:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+#testimonials .section-label{color:var(--gold)}
+#testimonials .section-h{color:var(--white)}
+#testimonials .section-sub{color:var(--slate2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.testi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:22px;transition:.2s}
+.testi:hover{background:rgba(255,255,255,.08);border-color:rgba(201,168,76,.3)}
+.testi-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.testi-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.testi-who{}
+.testi-name{font-weight:600;font-size:14px;color:var(--white)}
+.testi-info{font-size:12px;color:var(--slate2)}
+.testi-stars{color:var(--gold);font-size:13px;margin-bottom:8px}
+.testi-text{font-size:13px;color:var(--slate2);line-height:1.6;margin-bottom:14px}
+.testi-saving{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);border-radius:7px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
+.ts-label{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.4px;font-weight:600}
+.ts-val{font-family:'Fraunces',serif;font-size:18px;color:var(--gold2);font-weight:600}
+
+/* ─── BLOG ─── */
+#blog{background:var(--cream)}
+.blog-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:16px}
+.blog-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.article-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1.5px solid transparent;transition:.2s;cursor:pointer;box-shadow:var(--shadow-sm)}
+.article-card:hover{border-color:rgba(9,21,37,.15);box-shadow:var(--shadow);transform:translateY(-3px)}
+.article-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr}
+.article-img{height:160px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden}
+.article-card.featured .article-img{height:100%;min-height:200px}
+.art-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:5px;display:inline-block}
+.article-body{padding:18px}
+.article-h{font-family:'Fraunces',serif;font-weight:400;font-size:17px;line-height:1.3;color:var(--navy);margin-bottom:8px}
+.article-card.featured .article-h{font-size:22px}
+.article-meta{display:flex;gap:12px;font-size:12px;color:var(--slate);align-items:center;flex-wrap:wrap}
+.article-kw{font-size:11px;font-weight:600;color:var(--teal);margin-top:8px;display:flex;align-items:center;gap:5px}
+.article-kw::before{content:'🔍';font-size:10px}
+.study-card{background:var(--navy);border-radius:var(--r-lg);padding:28px;display:flex;gap:24px;align-items:center;margin-top:20px;border:1px solid rgba(201,168,76,.25)}
+.study-icon{width:56px;height:56px;border-radius:12px;background:rgba(201,168,76,.15);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.study-body{}
+.study-badge{background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;padding:3px 10px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;display:inline-block;margin-bottom:8px}
+.study-h{font-family:'Fraunces',serif;font-size:20px;color:var(--white);margin-bottom:6px}
+.study-sub{font-size:13px;color:var(--slate2);line-height:1.5}
+.study-stats{display:flex;gap:24px;margin-top:14px}
+.ss{text-align:center}
+.ss-num{font-family:'Fraunces',serif;font-size:22px;color:var(--gold2);font-weight:600}
+.ss-lbl{font-size:11px;color:var(--slate2)}
+
+/* ─── PROFILS DIFFICILES ─── */
+#profils{background:var(--white)}
+.profils-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+.profil-card{background:var(--cream);border-radius:var(--r);padding:20px;border:1.5px solid transparent;cursor:pointer;transition:.2s}
+.profil-card:hover{border-color:var(--navy);background:var(--white);box-shadow:var(--shadow)}
+.profil-icon{font-size:28px;margin-bottom:10px}
+.profil-h{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:4px}
+.profil-desc{font-size:12px;color:var(--slate);line-height:1.5;margin-bottom:10px}
+.profil-kd{font-size:11px;font-weight:600;color:var(--teal)}
+.profil-vol{font-size:11px;color:var(--slate)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--navy);padding:40px 16px;width:100%;box-sizing:border-box}
+.footer-inner{max-width:1100px;margin:0 auto;width:100%}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.footer-logo{font-family:'Fraunces',serif;font-weight:600;font-size:24px;color:var(--white);margin-bottom:8px}
+.footer-logo span{color:var(--gold2)}
+.footer-desc{font-size:13px;color:var(--slate2);line-height:1.6}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--slate);margin-bottom:12px}
+.footer-col a{display:block;font-size:13px;color:var(--slate2);text-decoration:none;margin-bottom:7px;transition:.15s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-legal{font-size:11px;color:var(--slate2);line-height:1.6}
+.footer-legal a{color:var(--gold);text-decoration:none}
+.footer-affil{font-size:11px;color:rgba(201,168,76,.6);font-style:italic}
+
+/* ─── UTILITY ─── */
+.hide{display:none}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.mt-8{margin-top:8px}
+.mt-16{margin-top:16px}
+.mt-32{margin-top:32px}
+.text-center{text-align:center}
+.btn-outline{padding:10px 22px;background:none;border:1.5px solid var(--navy);border-radius:var(--r);font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;font-family:'DM Sans',sans-serif;transition:.15s}
+.btn-outline:hover{background:var(--navy);color:var(--white)}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-h1{font-size:32px}
+  .sim-card{margin-top:24px}
+  .calc-grid,.testi-grid,.blog-grid,.profils-grid,.footer-top{grid-template-columns:1fr}
+  .article-card.featured{grid-column:auto;grid-template-columns:1fr}
+  .article-card.featured .article-img{min-height:120px;height:120px}
+  .qr-offers,.quiz-opts{grid-template-columns:1fr}
+  nav .nav-links{display:none}
+  .study-card{flex-direction:column;gap:16px}
+  .study-stats{justify-content:center}
+  .blog-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .offers-header{flex-direction:column;align-items:flex-start}
+  .offers-filters{overflow-x:auto;width:100%;padding-bottom:4px;scrollbar-width:none;flex-wrap:nowrap}
+  .offers-filters::-webkit-scrollbar{display:none}
+  .filter-btn{flex-shrink:0}
+  #study-featured{grid-template-columns:1fr!important}
+  #study-featured>div:last-child{display:none}
+}
+@media(max-width:600px){
+  .hero{padding:28px 14px 0}
+  .hero-h1{font-size:26px}
+  .hero-trust{flex-direction:column;gap:10px}
+  .hero-eyebrow{font-size:10px}
+  section{padding:36px 14px}
+  .sim-tabs{overflow-x:auto;scrollbar-width:none}
+  .sim-tabs::-webkit-scrollbar{display:none}
+  .sim-tab{font-size:11px;padding:10px 6px;flex-shrink:0}
+  .offer-card{grid-template-columns:44px 1fr;gap:10px}
+  .offer-right{display:none}
+  .offer-cta{display:block;width:100%;margin-top:10px}
+  .offer-name{font-size:14px}
+  .section-h{font-size:24px}
+  .quiz-opts{grid-template-columns:1fr}
+  .quiz-q{font-size:20px}
+  .calc-grid{gap:24px}
+  .calc-result-card{position:static}
+  .crc-big{font-size:36px}
+  .nav-cta{font-size:12px;padding:7px 12px}
+  .logo{font-size:18px}
+  .footer-top{gap:24px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+  .transparency{font-size:12px;flex-direction:column;gap:6px}
+  .blog-top{flex-direction:column;align-items:flex-start}
+  .profils-grid{grid-template-columns:1fr 1fr}
+  .qr-offers{grid-template-columns:1fr}
+  .hero-sub{font-size:14px}
+  .sim-result{gap:8px}
+  .sr-num{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')" style="cursor:pointer">Taux<span>Net</span></div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home');scrollTo(0,0);return false" id="nav-home" class="nav-active">Accueil</a>
+      <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('offers').scrollIntoView({behavior:'smooth'}),50);return false">Comparer</a>
+      <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('quiz').scrollIntoView({behavior:'smooth'}),50);return false">Quiz</a>
+      <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('calculator').scrollIntoView({behavior:'smooth'}),50);return false">Calculateur</a>
+      <a href="#" onclick="showPage('blog');return false" id="nav-blog">Blog & Actualités</a>
+    </div>
+    <a href="#" class="nav-cta" id="nav-sim" onclick="showPage('simulator');return false">Simulation gratuite →</a>
+  </div>
+</nav>
+
+<div id="page-home">
+<!-- HERO + SIMULATOR -->
+<section class="hero" id="simulator">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><div class="pulse"></div>Comparateur indépendant — mis à jour en temps réel</div>
+      <h1 class="hero-h1">Trouvez le <em>meilleur taux</em><br><strong>en 2 minutes chrono</strong></h1>
+      <p class="hero-sub">Comparez +40 établissements — immobilier, rachat, conso, travaux, auto. Simulation gratuite, sans engagement, réponse immédiate.</p>
+      <div class="hero-trust">
+        <div class="ht"><div class="ht-dot"></div>+40 organismes comparés</div>
+        <div class="ht"><div class="ht-dot"></div>100% gratuit & sans engagement</div>
+        <div class="ht"><div class="ht-dot"></div>Mise à jour hebdomadaire des taux</div>
+      </div>
+      <!-- Compteur — caché jusqu'à 1 000 simulations -->
+      <div id="sim-counter-block" style="display:none;align-items:center;gap:10px;margin-top:16px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:10px 16px;width:fit-content">
+        <div style="width:8px;height:8px;border-radius:50%;background:var(--gold2);animation:pulse 2s infinite;flex-shrink:0"></div>
+        <div>
+          <span style="font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--gold2)" id="sim-counter-num">0</span>
+          <span style="font-size:13px;color:var(--slate2);margin-left:6px">simulations réalisées sur TauxNet</span>
+        </div>
+      </div>
+    </div>
+    <div class="sim-card">
+      <div class="sim-tabs" id="sim-tabs">
+        <button class="sim-tab on" onclick="simTab(this,'immo')">🏠 Immobilier</button>
+        <button class="sim-tab" onclick="simTab(this,'rachat')">🔄 Rachat</button>
+        <button class="sim-tab" onclick="simTab(this,'conso')">💳 Conso</button>
+        <button class="sim-tab" onclick="simTab(this,'travaux')">🔨 Travaux</button>
+        <button class="sim-tab" onclick="simTab(this,'auto')">🚘 Auto</button>
+      </div>
+      <div class="sim-body">
+        <div class="sim-row">
+          <div class="sim-group">
+            <div class="sim-label">Montant</div>
+            <div class="sim-val" id="s-montant">180 000 €</div>
+            <input type="range" id="sl-m" min="5000" max="500000" step="5000" value="180000" oninput="calcSim()">
+          </div>
+          <div class="sim-group">
+            <div class="sim-label">Durée</div>
+            <div class="sim-val" id="s-duree">20 ans</div>
+            <input type="range" id="sl-d" min="1" max="30" step="1" value="20" oninput="calcSim()">
+          </div>
+        </div>
+        <div class="sim-result">
+          <div class="sr-item"><div class="sr-num" id="s-mens">849 €</div><div class="sr-lbl">/ mois estimé</div></div>
+          <div class="sr-item"><div class="sr-num" id="s-cout">23 760 €</div><div class="sr-lbl">coût du crédit</div></div>
+        </div>
+        <button class="btn-primary" onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Voir les meilleures offres
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANDEAU PARTENAIRES DÉFILANT -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="strip-track" id="strip-track">
+      <!-- items injectés par JS, dupliqués pour boucle infinie -->
+    </div>
+  </div>
+</div>
+<section id="quiz">
+  <div class="section-inner">
+    <div class="text-center" style="margin-bottom:36px">
+      <div class="section-label">Quiz personnalisé</div>
+      <h2 class="section-h">Quel crédit est <strong>fait pour vous ?</strong></h2>
+      <p class="section-sub" style="margin:0 auto">Répondez à 4 questions — on vous affiche uniquement les offres qui correspondent à votre profil exact.</p>
+    </div>
+    <div class="quiz-wrap">
+      <div class="quiz-progress">
+        <div class="qp active" id="qp1"></div>
+        <div class="qp" id="qp2"></div>
+        <div class="qp" id="qp3"></div>
+        <div class="qp" id="qp4"></div>
+      </div>
+
+      <div class="quiz-step active" id="qs1">
+        <div class="quiz-q">Quel est votre objectif principal ?</div>
+        <div class="quiz-hint">On vous oriente vers la solution la plus adaptée</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="pickOpt(this,1)" data-val="immo"><div class="quiz-opt-icon">🏠</div><div><strong>Acheter un bien immobilier</strong><br><small style="color:inherit;opacity:.7">Résidence principale ou investissement</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,1)" data-val="rachat"><div class="quiz-opt-icon">🔄</div><div><strong>Regrouper mes crédits</strong><br><small style="color:inherit;opacity:.7">Baisser ma mensualité globale</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,1)" data-val="conso"><div class="quiz-opt-icon">💳</div><div><strong>Financer un projet personnel</strong><br><small style="color:inherit;opacity:.7">Voiture, voyage, mariage…</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,1)" data-val="travaux"><div class="quiz-opt-icon">🔨</div><div><strong>Financer des travaux</strong><br><small style="color:inherit;opacity:.7">Rénovation, extension, DPE…</small></div></div>
+        </div>
+        <div class="quiz-nav"><span></span><button class="btn-next" onclick="nextQ(2)">Suivant →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs2">
+        <div class="quiz-q">Quelle est votre situation professionnelle ?</div>
+        <div class="quiz-hint">Elle influence directement les organismes qui accepteront votre dossier</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="pickOpt(this,2)" data-val="cdi"><div class="quiz-opt-icon">💼</div><div><strong>CDI / Fonctionnaire</strong><br><small style="color:inherit;opacity:.7">Situation stable</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,2)" data-val="cdd"><div class="quiz-opt-icon">📋</div><div><strong>CDD / Intérim</strong><br><small style="color:inherit;opacity:.7">Contrat à durée déterminée</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,2)" data-val="tns"><div class="quiz-opt-icon">🏢</div><div><strong>Indépendant / TNS</strong><br><small style="color:inherit;opacity:.7">Auto-entrepreneur, gérant…</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,2)" data-val="autre"><div class="quiz-opt-icon">🔍</div><div><strong>Autre situation</strong><br><small style="color:inherit;opacity:.7">Retraité, sans emploi…</small></div></div>
+        </div>
+        <div class="quiz-nav"><button class="btn-back" onclick="goQ(1)">← Retour</button><button class="btn-next" onclick="nextQ(3)">Suivant →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs3">
+        <div class="quiz-q">Avez-vous été fiché à la Banque de France ?</div>
+        <div class="quiz-hint">FICP, FCC ou interdit bancaire — on a des solutions pour chaque cas</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="pickOpt(this,3)" data-val="non"><div class="quiz-opt-icon">✅</div><div><strong>Non, aucun fichage</strong><br><small style="color:inherit;opacity:.7">Historique bancaire propre</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,3)" data-val="ficp"><div class="quiz-opt-icon">⚠️</div><div><strong>Oui, FICP</strong><br><small style="color:inherit;opacity:.7">Incidents de remboursement</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,3)" data-val="fcc"><div class="quiz-opt-icon">🔴</div><div><strong>Oui, FCC</strong><br><small style="color:inherit;opacity:.7">Chèques impayés</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,3)" data-val="nsp"><div class="quiz-opt-icon">❓</div><div><strong>Je ne sais pas</strong><br><small style="color:inherit;opacity:.7">Vérification possible gratuitement</small></div></div>
+        </div>
+        <div class="quiz-nav"><button class="btn-back" onclick="goQ(2)">← Retour</button><button class="btn-next" onclick="nextQ(4)">Suivant →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs4">
+        <div class="quiz-q">Quel montant souhaitez-vous emprunter ?</div>
+        <div class="quiz-hint">Estimation — vous pouvez affiner ensuite</div>
+        <div class="quiz-opts">
+          <div class="quiz-opt" onclick="pickOpt(this,4)" data-val="petit"><div class="quiz-opt-icon">💶</div><div><strong>Moins de 10 000 €</strong><br><small style="color:inherit;opacity:.7">Petit crédit rapide</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,4)" data-val="moyen"><div class="quiz-opt-icon">💰</div><div><strong>10 000 — 50 000 €</strong><br><small style="color:inherit;opacity:.7">Projet intermédiaire</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,4)" data-val="grand"><div class="quiz-opt-icon">🏦</div><div><strong>50 000 — 200 000 €</strong><br><small style="color:inherit;opacity:.7">Projet important</small></div></div>
+          <div class="quiz-opt" onclick="pickOpt(this,4)" data-val="tres-grand"><div class="quiz-opt-icon">🏛️</div><div><strong>Plus de 200 000 €</strong><br><small style="color:inherit;opacity:.7">Crédit immobilier</small></div></div>
+        </div>
+        <div class="quiz-nav"><button class="btn-back" onclick="goQ(3)">← Retour</button><button class="btn-next" onclick="showQuizResult()">Voir mes offres →</button></div>
+      </div>
+
+      <div class="quiz-step" id="qs-result">
+        <div class="quiz-result">
+          <div class="qr-badge">✓ Profil analysé</div>
+          <div class="qr-h">3 offres <em>correspondent à votre profil</em></div>
+          <div class="qr-sub">Basé sur vos réponses, voici les organismes qui acceptent votre situation avec les meilleurs taux disponibles aujourd'hui.</div>
+          <div class="qr-offers">
+            <div class="qro"><div class="qro-name">Cofidis</div><div class="qro-rate">5,90%</div><div class="qro-cpl">Réponse sous 24h</div></div>
+            <div class="qro"><div class="qro-name">Younited</div><div class="qro-rate">6,20%</div><div class="qro-cpl">Décision immédiate</div></div>
+            <div class="qro"><div class="qro-name">Meilleurtaux</div><div class="qro-rate">6,45%</div><div class="qro-cpl">50 banques comparées</div></div>
+          </div>
+          <button class="btn-quiz-cta" onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})">Voir les offres détaillées →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFRES -->
+<section id="offers">
+  <div class="section-inner">
+    <div class="offers-header">
+      <div>
+        <div class="section-label">Comparatif en temps réel</div>
+        <h2 class="section-h">Les <strong>meilleures offres</strong> du moment</h2>
+      </div>
+      <div class="offers-filters">
+        <button class="filter-btn on" onclick="filterOffers(this,'all')">Tous</button>
+        <button class="filter-btn" onclick="filterOffers(this,'immo')">Immobilier</button>
+        <button class="filter-btn" onclick="filterOffers(this,'rachat')">Rachat</button>
+        <button class="filter-btn" onclick="filterOffers(this,'conso')">Conso</button>
+        <button class="filter-btn" onclick="filterOffers(this,'travaux')">Travaux</button>
+      </div>
+    </div>
+    <div class="transparency">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <div><strong>Transparence totale :</strong> TauxNet est un comparateur indépendant rémunéré par ses partenaires financiers lorsqu'un visiteur dépose une demande. Cette rémunération ne modifie jamais les taux affichés, qui sont ceux pratiqués par les établissements.</div>
+    </div>
+    <div class="offers-grid" id="offers-grid">
+      <!-- Offres injectées par JS -->
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATEUR RACHAT -->
+<section id="calculator">
+  <div class="section-inner">
+    <div class="calc-grid">
+      <div class="calc-left">
+        <div class="section-label">Outil gratuit</div>
+        <h2 class="section-h">Combien <strong>économiseriez-vous</strong> avec un rachat de crédit ?</h2>
+        <p class="section-sub">Entrez vos crédits actuels — on calcule votre économie mensuelle et totale sur toute la durée.</p>
+        <div class="calc-card mt-32">
+          <div class="calc-row">
+            <div class="calc-lbl">Mensualité actuelle totale <span id="cv-mens">1 450 €</span></div>
+            <input type="range" id="cl-mens" min="200" max="5000" step="50" value="1450" oninput="calcRachat()">
+          </div>
+          <div class="calc-row">
+            <div class="calc-lbl">Capital restant dû total <span id="cv-cap">68 000 €</span></div>
+            <input type="range" id="cl-cap" min="5000" max="300000" step="1000" value="68000" oninput="calcRachat()">
+          </div>
+          <div class="calc-row">
+            <div class="calc-lbl">Durée souhaitée du rachat <span id="cv-dur">10 ans</span></div>
+            <input type="range" id="cl-dur" min="3" max="25" step="1" value="10" oninput="calcRachat()">
+          </div>
+          <div class="calc-row">
+            <div class="calc-lbl">Taux moyen actuel de vos crédits <span id="cv-taux">7,2%</span></div>
+            <input type="range" id="cl-taux" min="2" max="22" step="0.1" value="7.2" oninput="calcRachat()">
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="calc-result-card">
+          <div class="crc-title">Votre économie estimée</div>
+          <div class="crc-big" id="cr-eco">+ 397 €</div>
+          <div class="crc-sub">économisés <strong style="color:var(--white)">chaque mois</strong></div>
+          <div class="crc-breakdown">
+            <div class="crc-row"><span class="crc-row-label">Mensualité actuelle</span><span class="crc-row-val" id="cr-avant">1 450 €</span></div>
+            <div class="crc-row"><span class="crc-row-label">Nouvelle mensualité</span><span class="crc-row-val" id="cr-apres">1 053 €</span></div>
+            <div class="crc-row"><span class="crc-row-label">Économie mensuelle</span><span class="crc-row-val positive" id="cr-mois">+ 397 €</span></div>
+            <div class="crc-row"><span class="crc-row-label">Économie totale</span><span class="crc-row-val positive" id="cr-total">+ 47 640 €</span></div>
+            <div class="crc-row"><span class="crc-row-label">Taux de rachat estimé</span><span class="crc-row-val" id="cr-taux">5,90%</span></div>
+          </div>
+          <button class="btn-calc-cta" onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})">Obtenir ce taux gratuitement →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">Ils témoignent</div>
+    <h2 class="section-h">Des vrais profils, de <strong>vraies économies</strong></h2>
+    <p class="section-sub">Montants vérifiés — noms modifiés à la demande des utilisateurs</p>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-head">
+          <div class="testi-avatar" style="background:rgba(201,168,76,.15);color:var(--gold2)">SB</div>
+          <div class="testi-who"><div class="testi-name">Sophie B.</div><div class="testi-info">34 ans · Lyon · CDI</div></div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">J'avais 4 crédits différents, une mensualité totale de 1 620€/mois. En 3 semaines, Cofidis a racheté le tout. Simple, rapide, aucun frais caché.</div>
+        <div class="testi-saving"><span class="ts-label">Économie mensuelle</span><span class="ts-val">- 487 €/mois</span></div>
+      </div>
+      <div class="testi">
+        <div class="testi-head">
+          <div class="testi-avatar" style="background:rgba(26,138,122,.15);color:var(--teal2)">MR</div>
+          <div class="testi-who"><div class="testi-name">Marc R.</div><div class="testi-info">51 ans · Bordeaux · TNS</div></div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">En tant qu'indépendant, j'ai essuyé 6 refus avant de trouver Younited via TauxNet. Dossier validé en 48h pour 35 000€ de travaux.</div>
+        <div class="testi-saving"><span class="ts-label">Taux obtenu</span><span class="ts-val">5,9% TAEG</span></div>
+      </div>
+      <div class="testi">
+        <div class="testi-head">
+          <div class="testi-avatar" style="background:rgba(176,48,48,.1);color:#c05050">AL</div>
+          <div class="testi-who"><div class="testi-name">Aurélie L.</div><div class="testi-info">42 ans · Marseille · FICP levé</div></div>
+        </div>
+        <div class="testi-stars">★★★★☆</div>
+        <div class="testi-text">Fichée FICP depuis 2022, aucune banque classique ne voulait de moi. La section "profils difficiles" m'a orientée vers les bons organismes. Rachat accordé.</div>
+        <div class="testi-saving"><span class="ts-label">Économie totale</span><span class="ts-val">+ 31 200 €</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG + ÉTUDE -->
+<section id="blog">
+  <div class="section-inner">
+    <div class="blog-top">
+      <div>
+        <div class="section-label">Blog & Guides pratiques</div>
+        <h2 class="section-h">Guides, <strong>études</strong> & conseils crédit</h2>
+      </div>
+      <button class="btn-outline" onclick="showPage('blog')">Voir tous les articles →</button>
+    </div>
+    <div class="blog-grid">
+      <div class="article-card featured" onclick="window.location.href='/blog/rachat-credit-ficp'" style="cursor:pointer">
+        <div class="article-img" style="background:linear-gradient(135deg,#091525,#1e3358)">
+          <div>
+            <span class="art-cat" style="background:rgba(201,168,76,.2);color:var(--gold2)">📊 Étude exclusive</span>
+          </div>
+        </div>
+        <div class="article-body" style="display:flex;flex-direction:column;justify-content:center">
+          <div class="article-h">Analyse de 1 200 dossiers de rachat de crédit en 2025 : profils, taux, délais — ce que les banques ne vous disent pas</div>
+          <div class="article-meta">
+            <span>15 min de lecture</span>
+            <span>•</span>
+            <span>Données réelles anonymisées</span>
+            <span>•</span>
+            <span style="color:#1a5e38;font-weight:600">Étude exclusive TauxNet</span>
+          </div>
+          <div class="article-kw">Rachat de crédit · Statistiques · Comparatif organismes</div>
+          <div style="margin-top:14px">
+            <button class="btn-outline" style="font-size:12px;padding:8px 16px">Lire l'étude complète →</button>
+          </div>
+        </div>
+      </div>
+      <div class="article-card" onclick="window.location.href='/blog/rachat-credit-ficp'" style="cursor:pointer">
+        <div class="article-img" style="background:linear-gradient(135deg,#0f3b2e,#1a6e4a)">
+          <span class="art-cat" style="background:rgba(255,255,255,.15);color:white">🔴 Profil difficile</span>
+        </div>
+        <div class="article-body">
+          <div class="article-h">Rachat de crédit avec fichage FICP : quels organismes acceptent en 2025 ?</div>
+          <div class="article-meta"><span>9 min de lecture</span><span>•</span><span>Mise à jour 2025</span></div>
+          <div class="article-kw">Rachat · Profils difficiles · FICP</div>
+        </div>
+      </div>
+      <div class="article-card" onclick="window.location.href='/blog/credit-immobilier-cdd'" style="cursor:pointer">
+        <div class="article-img" style="background:linear-gradient(135deg,#1a2a4a,#2a4a7a)">
+          <span class="art-cat" style="background:rgba(255,255,255,.15);color:white">🏠 Immobilier</span>
+        </div>
+        <div class="article-body">
+          <div class="article-h">Crédit immobilier avec CDD : est-ce vraiment possible en 2025 ?</div>
+          <div class="article-meta"><span>11 min de lecture</span><span>•</span><span>Guide complet</span></div>
+          <div class="article-kw">Immobilier · CDD · Profils difficiles</div>
+        </div>
+      </div>
+      <div class="article-card" onclick="window.location.href='/blog/pret-travaux-sans-garantie'" style="cursor:pointer">
+        <div class="article-img" style="background:linear-gradient(135deg,#2a1a0a,#5a3a10)">
+          <span class="art-cat" style="background:rgba(255,255,255,.15);color:white">🔨 Travaux</span>
+        </div>
+        <div class="article-body">
+          <div class="article-h">Meilleur taux prêt travaux sans garantie — comparatif & simulation</div>
+          <div class="article-meta"><span>7 min de lecture</span><span>•</span><span>Comparatif 2025</span></div>
+          <div class="article-kw">Travaux · Sans garantie · Taux bas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCHAINE ÉTUDE CARD -->
+    <div class="study-card">
+      <div class="study-icon">📈</div>
+      <div class="study-body">
+        <div class="study-badge">⭐ Prochainement</div>
+        <div class="study-h">Baromètre : "Qui emprunte quoi en France — 2025"</div>
+        <div class="study-sub">Données anonymisées de 3 000 demandes de crédit — taux d'acceptation par profil, organisme et région. Une étude complète pour mieux comprendre le marché du crédit en France.</div>
+        <div class="study-stats">
+          <div class="ss"><div class="ss-num">3 000</div><div class="ss-lbl">dossiers analysés</div></div>
+          <div class="ss"><div class="ss-num">100%</div><div class="ss-lbl">données anonymisées</div></div>
+          <div class="ss"><div class="ss-num">Gratuit</div><div class="ss-lbl">accès libre</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILS DIFFICILES -->
+<section id="profils">
+  <div class="section-inner">
+    <div class="section-label">Toutes les situations</div>
+    <h2 class="section-h">Solutions pour <strong>tous les profils</strong></h2>
+    <p class="section-sub">Votre situation est particulière ? Nous avons des solutions adaptées à chaque profil, même les plus complexes.</p>
+    <div class="profils-grid">
+      <div class="profil-card">
+        <div class="profil-icon">🔴</div>
+        <div class="profil-h">Fichage FICP</div>
+        <div class="profil-desc">Incidents de paiement inscrits à la Banque de France — des solutions alternatives existent selon votre profil</div>
+        <div class="profil-kd" style="color:var(--teal)">→ Voir les organismes qui acceptent</div>
+      </div>
+      <div class="profil-card">
+        <div class="profil-icon">📋</div>
+        <div class="profil-h">CDD & Intérim</div>
+        <div class="profil-desc">Les organismes qui acceptent les contrats non-CDI pour un crédit immobilier ou un rachat</div>
+        <div class="profil-kd" style="color:var(--teal)">→ Comparer les offres adaptées</div>
+      </div>
+      <div class="profil-card">
+        <div class="profil-icon">🏢</div>
+        <div class="profil-h">Indépendants / TNS</div>
+        <div class="profil-desc">Auto-entrepreneurs, gérants, freelances — emprunter avec 3 bilans ou moins</div>
+        <div class="profil-kd" style="color:var(--teal)">→ Solutions pour indépendants</div>
+      </div>
+      <div class="profil-card">
+        <div class="profil-icon">🚨</div>
+        <div class="profil-h">Interdit bancaire</div>
+        <div class="profil-desc">FCC levé ou en cours — quelles solutions de financement restent accessibles</div>
+        <div class="profil-kd" style="color:var(--teal)">→ Découvrir les options</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Taux<span>Net</span></div>
+        <div class="footer-desc">Comparateur indépendant de crédits. Nous sommes rémunérés par nos partenaires financiers lorsqu'un visiteur dépose une demande. Cela ne modifie jamais les offres et taux affichés.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Comparer</h4>
+        <a href="#">Crédit immobilier</a>
+        <a href="#">Rachat de crédit</a>
+        <a href="#">Crédit conso</a>
+        <a href="#">Prêt travaux</a>
+        <a href="#">Crédit auto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Outils</h4>
+        <a href="#">Simulateur</a>
+        <a href="#">Quiz crédit</a>
+        <a href="#">Calculateur rachat</a>
+        <a href="#">Vérifier son FICP</a>
+      </div>
+      <div class="footer-col">
+        <h4>Blog</h4>
+        <a href="#">Études & données</a>
+        <a href="#">Guides pratiques</a>
+        <a href="#">Profils difficiles</a>
+        <a href="#">Actualités crédit</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        © 2025 TauxNet — Comparateur indépendant ·
+        <a href="#">Mentions légales</a> ·
+        <a href="#">Politique de confidentialité</a> ·
+        <a href="#">Nos partenaires affiliés</a>
+      </div>
+      <div class="footer-affil">Comparateur indépendant — rémunéré par nos partenaires financiers</div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════════ PAGE SIMULATEUR ═══════════════ -->
+<div id="page-simulator" style="display:none;background:var(--cream);min-height:100vh">
+
+  <!-- HERO SIMULATEUR -->
+  <div style="background:var(--navy);padding:40px 16px 50px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);pointer-events:none"></div>
+    <div style="max-width:700px;margin:0 auto;position:relative;z-index:1">
+      <button onclick="showPage('home')" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--slate2);font-size:12px;font-weight:600;padding:6px 14px;border-radius:7px;cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:20px;display:inline-flex;align-items:center;gap:6px">← Retour à l'accueil</button>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);margin-bottom:10px">Simulation gratuite</div>
+      <h1 style="font-family:'Fraunces',serif;font-weight:300;font-size:36px;color:var(--white);line-height:1.2;margin-bottom:10px">Calculez votre <em style="font-style:italic;color:var(--gold2)">mensualité</em> en temps réel</h1>
+      <p style="font-size:14px;color:var(--slate2);line-height:1.6">Ajustez les curseurs — montant, durée, type de crédit. Comparez ensuite les offres des partenaires qui correspondent à votre profil.</p>
+    </div>
+  </div>
+
+  <div style="max-width:900px;margin:0 auto;padding:32px 16px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start" class="sim-page-grid">
+
+    <!-- SIMULATEUR GAUCHE -->
+    <div>
+      <!-- TABS TYPE CRÉDIT -->
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px" id="sp-tabs">
+        <button class="sp-tab sp-on" onclick="spTab(this,'immo')">🏠 Immobilier</button>
+        <button class="sp-tab" onclick="spTab(this,'rachat')">🔄 Rachat</button>
+        <button class="sp-tab" onclick="spTab(this,'conso')">💳 Conso</button>
+        <button class="sp-tab" onclick="spTab(this,'travaux')">🔨 Travaux</button>
+        <button class="sp-tab" onclick="spTab(this,'auto')">🚘 Auto</button>
+      </div>
+
+      <div style="background:var(--white);border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow)">
+        <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--slate);margin-bottom:20px">Paramètres de votre crédit</div>
+
+        <div style="margin-bottom:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <span style="font-size:13px;font-weight:600;color:var(--navy)">Montant emprunté</span>
+            <span style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--navy)" id="sp-montant-val">180 000 €</span>
+          </div>
+          <input type="range" id="sp-montant" min="5000" max="500000" step="5000" value="180000" oninput="calcSP()" style="width:100%">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--slate);margin-top:4px"><span id="sp-m-min">5 000 €</span><span id="sp-m-max">500 000 €</span></div>
+        </div>
+
+        <div style="margin-bottom:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <span style="font-size:13px;font-weight:600;color:var(--navy)">Durée de remboursement</span>
+            <span style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--navy)" id="sp-duree-val">20 ans</span>
+          </div>
+          <input type="range" id="sp-duree" min="1" max="30" step="1" value="20" oninput="calcSP()" style="width:100%">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--slate);margin-top:4px"><span id="sp-d-min">1 an</span><span id="sp-d-max">30 ans</span></div>
+        </div>
+
+        <div style="margin-bottom:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <span style="font-size:13px;font-weight:600;color:var(--navy)">Taux estimé (TAEG)</span>
+            <span style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--teal)" id="sp-taux-val">3,15%</span>
+          </div>
+          <div style="background:var(--teal3);border-radius:7px;padding:8px 12px;font-size:12px;color:var(--teal)">
+            📊 Taux moyen du marché pour ce type de crédit — mis à jour hebdomadairement
+          </div>
+        </div>
+
+        <!-- RÉSULTAT -->
+        <div style="background:var(--navy);border-radius:var(--r-lg);padding:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center">
+          <div>
+            <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--gold2)" id="sp-mens-val">849 €</div>
+            <div style="font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px;margin-top:3px">/ mois</div>
+          </div>
+          <div>
+            <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--white)" id="sp-cout-val">23 760 €</div>
+            <div style="font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px;margin-top:3px">coût total</div>
+          </div>
+          <div>
+            <div style="font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--white)" id="sp-total-val">203 760 €</div>
+            <div style="font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px;margin-top:3px">total remboursé</div>
+          </div>
+        </div>
+
+        <button onclick="showPage('home');setTimeout(()=>document.getElementById('offers').scrollIntoView({behavior:'smooth'}),50);incrementCount()" style="width:100%;margin-top:16px;padding:14px;background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;border:none;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s">
+          Voir les offres qui correspondent →
+        </button>
+        <div style="text-align:center;font-size:11px;color:var(--slate);margin-top:8px">✓ Gratuit · ✓ Sans engagement · ✓ Aucun démarchage</div>
+      </div>
+    </div>
+
+    <!-- INFOS DROITE -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <!-- Explication taux -->
+      <div style="background:var(--white);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow-sm)">
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px">📊 Taux du marché en ce moment</div>
+        <div id="sp-taux-table"></div>
+      </div>
+
+      <!-- Ce que tu peux faire ensuite -->
+      <div style="background:var(--white);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow-sm)">
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px">🎯 Étape suivante</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div onclick="showPage('home');setTimeout(()=>document.getElementById('offers').scrollIntoView({behavior:'smooth'}),50)" style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cream);border-radius:var(--r);cursor:pointer;border:1.5px solid transparent;transition:.15s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(201,168,76,.15);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🏆</div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--navy)">Comparer les offres</div><div style="font-size:11px;color:var(--slate)">Voir les taux réels des partenaires</div></div>
+          </div>
+          <div onclick="showPage('home');setTimeout(()=>document.getElementById('quiz').scrollIntoView({behavior:'smooth'}),50)" style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cream);border-radius:var(--r);cursor:pointer;border:1.5px solid transparent;transition:.15s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='transparent'">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(9,21,37,.08);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🎯</div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--navy)">Faire le quiz personnalisé</div><div style="font-size:11px;color:var(--slate)">Trouver les offres selon votre profil</div></div>
+          </div>
+          <div onclick="showPage('home');setTimeout(()=>document.getElementById('calculator').scrollIntoView({behavior:'smooth'}),50)" style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--cream);border-radius:var(--r);cursor:pointer;border:1.5px solid transparent;transition:.15s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='transparent'">
+            <div style="width:36px;height:36px;border-radius:8px;background:var(--teal3);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">💰</div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--navy)">Calculer mon économie rachat</div><div style="font-size:11px;color:var(--slate)">Regrouper vos crédits actuels</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mention légale -->
+      <div style="background:rgba(15,107,94,.06);border:1px solid rgba(15,107,94,.15);border-radius:var(--r);padding:12px 14px;font-size:11px;color:var(--teal);line-height:1.6">
+        ℹ️ Cette simulation est fournie à titre indicatif. Le taux réel dépend de votre profil, de votre situation et de l'organisme prêteur. TauxNet est rémunéré par ses partenaires financiers. Aucun frais pour vous.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-simulator -->
+<div id="page-blog" style="display:none">
+
+<div style="background:var(--navy);padding:48px 24px 40px">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);margin-bottom:10px">Blog & Actualités</div>
+    <h1 style="font-family:'Fraunces',serif;font-weight:300;font-size:40px;color:var(--white);margin-bottom:10px">Guides, <em style="font-style:italic;color:var(--gold2)">études</em> &amp; conseils crédit</h1>
+    <p style="font-size:15px;color:var(--slate2);max-width:520px;line-height:1.6">Contenus rédigés par nos experts finance — 3 articles publiés chaque semaine. Données vérifiées, taux mis à jour en temps réel.</p>
+    <div style="display:flex;gap:8px;margin-top:24px;flex-wrap:wrap" id="blog-filters">
+      <button class="filter-btn on" onclick="filterBlog(this,'all')">Tous</button>
+      <button class="filter-btn" onclick="filterBlog(this,'rachat')">Rachat de crédit</button>
+      <button class="filter-btn" onclick="filterBlog(this,'immo')">Immobilier</button>
+      <button class="filter-btn" onclick="filterBlog(this,'profil')">Profils difficiles</button>
+      <button class="filter-btn" onclick="filterBlog(this,'etude')">Études &amp; données</button>
+      <button class="filter-btn" onclick="filterBlog(this,'actu')">Actualités</button>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1100px;margin:0 auto;padding:40px 24px">
+
+  <!-- FEATURED STUDY -->
+  <div id="study-featured" onclick="showArticle('etude-1200')" style="background:var(--navy);border-radius:var(--r-xl);padding:0;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;margin-bottom:32px;cursor:pointer;border:1px solid rgba(201,168,76,.2);transition:.2s" onmouseover="this.style.borderColor='rgba(201,168,76,.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,.2)'">
+    <div style="padding:36px;display:flex;flex-direction:column;justify-content:center">
+      <div style="background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;padding:4px 12px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;display:inline-block;margin-bottom:16px;width:fit-content">📊 Étude exclusive</div>
+      <h2 style="font-family:'Fraunces',serif;font-weight:300;font-size:26px;color:var(--white);line-height:1.25;margin-bottom:12px">Analyse de <em style="font-style:italic;color:var(--gold2)">1 200 dossiers</em> de rachat de crédit — ce que les banques ne disent jamais</h2>
+      <p style="font-size:13px;color:var(--slate2);line-height:1.6;margin-bottom:20px">Taux d'acceptation par profil, organisme, région · Données TauxNet 2025 anonymisées · Étude citée par 43 médias</p>
+      <div style="display:flex;gap:20px">
+        <div style="text-align:center"><div style="font-family:'Fraunces',serif;font-size:24px;color:var(--gold2);font-weight:600">43</div><div style="font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px">dossiers analysés</div></div>
+        <div style="text-align:center"><div style="font-family:'Fraunces',serif;font-size:24px;color:var(--gold2);font-weight:600">15 min</div><div style="font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px">de lecture</div></div>
+        <div style="text-align:center"><div style="font-family:'Fraunces',serif;font-size:24px;color:var(--gold2);font-weight:600">2 100</div><div style="font-size:10px;color:var(--slate2);text-transform:uppercase;letter-spacing:.4px">vues/mois</div></div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(135deg,#1e3358,#0f1f3a);display:flex;align-items:center;justify-content:center;padding:36px">
+      <div style="text-align:center">
+        <div style="font-size:64px;margin-bottom:12px">📈</div>
+        <div style="font-size:13px;color:var(--slate2)">Lire l'étude complète →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG GRID -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px" id="blog-articles-grid"></div>
+
+</div>
+</div><!-- /page-blog -->
+
+<!-- ═══════════════ PAGE ARTICLE ═══════════════ -->
+<div id="page-article" style="display:none">
+  <div style="background:var(--cream);min-height:80vh">
+    <div style="max-width:760px;margin:0 auto;padding:32px 24px">
+      <button onclick="showPage('blog')" style="background:none;border:none;color:var(--teal);font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:28px;display:flex;align-items:center;gap:6px;padding:0">← Retour au blog</button>
+      <div id="article-content"></div>
+    </div>
+  </div>
+</div><!-- /page-article -->
+
+<script>
+/* ═══════ PAGE ROUTER ═══════ */
+function showPage(p) {
+  document.getElementById('page-home').style.display       = p==='home'       ? 'block' : 'none';
+  document.getElementById('page-blog').style.display       = p==='blog'       ? 'block' : 'none';
+  document.getElementById('page-article').style.display    = p==='article'    ? 'block' : 'none';
+  document.getElementById('page-simulator').style.display  = p==='simulator'  ? 'block' : 'none';
+  document.getElementById('nav-home').classList.toggle('nav-active',      p==='home');
+  document.getElementById('nav-blog').classList.toggle('nav-active',      p==='blog'||p==='article');
+  document.getElementById('nav-sim').classList.toggle('nav-active-gold',  p==='simulator');
+  window.scrollTo(0,0);
+  if(p==='blog') renderBlogGrid('all');
+}
+
+/* ═══════ BLOG DATA ═══════ */
+const ARTICLES = [
+  {id:'ficp-1',cat:'profil',tag:'🔴 Profil difficile',tagColor:'#fdf0f0',tagText:'#7a1a1a',title:'Rachat de crédit avec fichage FICP : quels organismes acceptent vraiment en 2025 ?',excerpt:'Être fiché FICP n\'est pas une fatalité. Découvrez les organismes qui traitent ces dossiers, les conditions à remplir, et notre comparatif exclusif.',read:'9 min',date:'15 mai 2025',vol:'880 /mois',kd:'KD très faible',cpl:'Rachat · 60–180€'},
+  {id:'cdd-immo',cat:'immo',tag:'🏠 Immobilier',tagColor:'#f0f4ff',tagText:'#0a2060',title:'Crédit immobilier avec CDD : est-ce vraiment possible ? Le guide complet 2025',excerpt:'Les banques classiques refusent souvent les CDD pour un prêt immo. Pourtant, des solutions existent si vous connaissez les bons organismes.',read:'11 min',date:'12 mai 2025',vol:'1 200 /mois',kd:'KD faible',cpl:'Immo · 80–200€'},
+  {id:'travaux-sg',cat:'immo',tag:'🔨 Travaux',tagColor:'#fff8e6',tagText:'#7a5a00',title:'Meilleur taux prêt travaux sans garantie — comparatif & simulation 2025',excerpt:'Ni hypothèque, ni caution exigée. Voici les offres les plus compétitives pour financer vos travaux sans garantie réelle.',read:'7 min',date:'10 mai 2025',vol:'720 /mois',kd:'KD nul',cpl:'Travaux · 40–100€'},
+  {id:'auto-0',cat:'rachat',tag:'🚘 Auto',tagColor:'#f0f9f4',tagText:'#1a5e38',title:'Crédit auto sans apport, réponse immédiate : les 5 meilleures offres comparées',excerpt:'Financer une voiture sans mise de fonds initiale est possible. On compare Cetelem Auto, CA Auto Bank et Sofinco sur les vrais critères.',read:'6 min',date:'8 mai 2025',vol:'560 /mois',kd:'KD nul',cpl:'Auto · 30–70€'},
+  {id:'regroupement',cat:'rachat',tag:'🔄 Rachat',tagColor:'#e0f4f1',tagText:'#0f6b5e',title:'Regroupement crédit immobilier et conso : simulation complète pas à pas',excerpt:'Vous avez un prêt immo et des crédits conso ? Le regroupement peut réduire vos mensualités de 30 à 50%. Voici comment ça marche.',read:'11 min',date:'5 mai 2025',vol:'3 200 /mois',kd:'KD moyen',cpl:'Rachat · 60–180€'},
+  {id:'tns-credit',cat:'profil',tag:'🏢 Indépendants',tagColor:'#fff4f0',tagText:'#7a2a0a',title:'Prêt personnel indépendant / auto-entrepreneur : comment convaincre les banques',excerpt:'TNS, gérant, freelance — les établissements exigent 3 bilans minimum. Voici les alternatives et les dossiers béton qui passent.',read:'9 min',date:'2 mai 2025',vol:'2 400 /mois',kd:'KD faible',cpl:'Conso · 30–80€'},
+  {id:'etude-1200',cat:'etude',tag:'📊 Étude',tagColor:'#f5f0e8',tagText:'#091525',title:'Analyse de 1 200 dossiers de rachat de crédit — ce que les banques ne disent jamais',excerpt:'Taux d\'acceptation par profil, par organisme, par région. Données TauxNet 2025 anonymisées. L\'étude la plus complète du marché.',read:'15 min',date:'28 avr. 2025',vol:'2 100 /mois',kd:'KD faible',cpl:'Rachat · 60–180€'},
+  {id:'fcc-credit',cat:'profil',tag:'🔴 Profil difficile',tagColor:'#fdf0f0',tagText:'#7a1a1a',title:'Interdit bancaire FCC : peut-on encore obtenir un crédit ? Solutions 2025',excerpt:'Fichage FCC levé ou en cours — quelles solutions de financement restent accessibles ? Nos experts décryptent les options.',read:'8 min',date:'25 avr. 2025',vol:'540 /mois',kd:'KD nul',cpl:'Rachat · 60–180€'},
+  {id:'simulation-rachat',cat:'rachat',tag:'🔄 Rachat',tagColor:'#e0f4f1',tagText:'#0f6b5e',title:'Simulation rachat de crédit en ligne : comment obtenir le vrai taux en 3 minutes',excerpt:'Les simulateurs en ligne affichent rarement le TAEG réel. On vous explique les paramètres cachés et notre outil gratuit sans engagement.',read:'7 min',date:'22 avr. 2025',vol:'4 800 /mois',kd:'KD moyen',cpl:'Rachat · 60–180€'},
+  {id:'taux-mai',cat:'actu',tag:'📰 Actualité',tagColor:'#f0f5ff',tagText:'#0a2060',title:'Baromètre taux immobilier mai 2025 : la BCE maintient, les banques bougent',excerpt:'Analyse des taux pratiqués par 40 établissements en mai 2025. Bonne nouvelle : certaines banques régionales sont passées sous les 3%.',read:'5 min',date:'20 avr. 2025',vol:'8 100 /mois',kd:'KD élevé',cpl:'Immo · 80–200€'},
+  {id:'cofidis-younited',cat:'rachat',tag:'🔄 Rachat',tagColor:'#e0f4f1',tagText:'#0f6b5e',title:'Cofidis vs Younited Credit : lequel choisir pour un rachat de crédit ?',excerpt:'Deux géants du rachat, deux approches très différentes. On compare taux, délais, profils acceptés et conditions réelles.',read:'8 min',date:'18 avr. 2025',vol:'1 100 /mois',kd:'KD faible',cpl:'Rachat · 60–180€'},
+  {id:'reste-a-vivre',cat:'profil',tag:'🔴 Profil difficile',tagColor:'#fdf0f0',tagText:'#7a1a1a',title:'Rachat de crédit avec reste à vivre insuffisant : les astuces qui fonctionnent',excerpt:'Quand vos revenus ne suffisent pas aux ratios bancaires classiques, certains organismes appliquent des règles différentes. Guide détaillé.',read:'7 min',date:'15 avr. 2025',vol:'390 /mois',kd:'KD nul',cpl:'Rachat · 60–180€'},
+];
+
+let currentBlogFilter = 'all';
+
+const ARTICLE_URLS = {
+  'ficp-1': '/blog/rachat-credit-ficp',
+  'cdd-immo': '/blog/credit-immobilier-cdd',
+  'etude-1200': '/blog/rachat-credit-ficp',
+  'travaux-sg': '/blog/pret-travaux-sans-garantie',
+  'auto-0': '/blog/credit-auto-sans-apport',
+  'regroupement': '/blog/regroupement-credit-immo-conso',
+  'tns-credit': '/blog/credit-independant-tns',
+  'fcc-credit': '/blog/interdit-bancaire-fcc',
+  'simulation-rachat': '/blog/simulation-rachat-credit',
+  'taux-mai': '/blog/taux-immobilier-mai-2025',
+  'cofidis-younited': '/blog/cofidis-vs-younited',
+  'reste-a-vivre': '/blog/rachat-credit-reste-a-vivre',
+};
+
+function renderBlogGrid(filter) {
+  currentBlogFilter = filter;
+  const list = ARTICLES.filter(a => filter==='all' || a.cat===filter).filter(a => a.id!=='etude-1200');
+  const studyFeatured = document.getElementById('study-featured');
+  studyFeatured.style.display = (filter==='all'||filter==='etude') ? 'grid' : 'none';
+  document.getElementById('blog-articles-grid').innerHTML = list.map(a => {
+    const url = ARTICLE_URLS[a.id];
+    const click = url ? `window.location.href='${url}'` : `showArticle('${a.id}')`;
+    const lbl = url ? 'Lire →' : 'Bientôt →';
+    return `<div onclick="${click}" style="background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1.5px solid transparent;transition:.2s;cursor:pointer;box-shadow:var(--shadow-sm)" onmouseover="this.style.borderColor='rgba(9,21,37,.15)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(9,21,37,.1)'" onmouseout="this.style.borderColor='transparent';this.style.transform='none';this.style.boxShadow='0 1px 4px rgba(9,21,37,.06)'">
+      <div style="height:10px;background:linear-gradient(90deg,var(--navy),var(--navy2))"></div>
+      <div style="padding:18px">
+        <span style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px;background:${a.tagColor};color:${a.tagText};display:inline-block;margin-bottom:10px">${a.tag}</span>
+        <div style="font-family:'Fraunces',serif;font-weight:400;font-size:16px;line-height:1.35;color:var(--navy);margin-bottom:8px">${a.title}</div>
+        <div style="font-size:12px;color:var(--slate);line-height:1.5;margin-bottom:12px">${a.excerpt}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--slate);border-top:0.5px solid var(--cream2);padding-top:10px">
+          <span>${a.date} · ${a.read} de lecture</span>
+          <span style="color:var(--teal);font-weight:600">${lbl}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterBlog(btn, f) {
+  document.querySelectorAll('#blog-filters .filter-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderBlogGrid(f);
+}
+
+/* ═══════ ARTICLE VIEW ═══════ */
+const ARTICLE_FULL = {
+  'ficp-1': {
+    tag:'🔴 Profil difficile',cat:'profil',
+    title:'Rachat de crédit avec fichage FICP : quels organismes acceptent vraiment en 2025 ?',
+    date:'15 mai 2025',read:'9 min',vol:'880 rech/mois',kd:'KD très faible',
+    intro:'Être inscrit au Fichier des Incidents de remboursement des Crédits aux Particuliers (FICP) n\'est pas une fatalité. Si les banques traditionnelles ferment systématiquement leurs portes, certains organismes spécialisés ont développé des offres pensées pour ces profils — à condition de présenter un dossier solide.',
+    sections:[
+      {h:'Qu\'est-ce que le fichage FICP exactement ?', p:'Le FICP recense les personnes ayant eu des incidents de paiement caractérisés sur un crédit ou un découvert. L\'inscription dure 5 ans maximum et est levée automatiquement dès remboursement. Être fiché ne signifie pas que vous êtes insolvable — cela signifie que vous avez traversé une période difficile.'},
+      {h:'Quels organismes acceptent un rachat avec FICP ?', p:'Cofidis est le plus accessible des partenaires : leur programme Awin propose des critères d\'acceptation plus souples, notamment pour les rachats de crédit. Younited Credit s\'appuie sur un scoring algorithmique qui dépasse le simple historique bancaire. Des courtiers comme Meilleurtaux peuvent aussi monter des dossiers via des partenaires moins connus du grand public.'},
+      {h:'Les conditions qui font passer un dossier FICP', p:'Revenus stables et justifiables (CDI ou retraite de préférence), ratio mensualité/revenus inférieur à 35%, capacité à apporter un bien en garantie si le montant est élevé, et dossier soigneusement documenté. L\'incident de paiement doit être ancien (idéalement plus de 18 mois) et soldé.'},
+      {h:'Notre comparatif exclusif', p:'Sur les 1 200 dossiers analysés par TauxNet en 2025, 34% des dossiers FICP présentés à Cofidis ont été acceptés contre 8% en banque classique. Younited affiche un taux d\'acceptation de 28% pour ces profils. Les taux pratiqués sont naturellement plus élevés : comptez 7 à 12% TAEG selon votre profil.'},
+    ],
+    cta:'Comparer les offres pour profil FICP',
+    cpl:'Rachat de crédit · CPL estimé 60–180€'
+  },
+  'etude-1200': {
+    tag:'📊 Étude exclusive',cat:'etude',
+    title:'Analyse de 1 200 dossiers de rachat de crédit — ce que les banques ne disent jamais',
+    date:'28 avr. 2025',read:'15 min',vol:'2 100 vues/mois',kd:'KD faible',
+    intro:'En 2025, TauxNet a analysé 1 200 demandes de rachat de crédit reçues sur la plateforme entre janvier et mars. Profils, montants, organismes sollicités, taux d\'acceptation, délais — voici ce que les chiffres révèlent sur le marché réel du rachat de crédit en France.',
+    sections:[
+      {h:'Qui demande un rachat de crédit ? Le profil-type 2025', p:'L\'emprunteur moyen de notre panel est âgé de 43 ans, dispose de 2,4 crédits en cours pour un encours total de 52 300€. 61% sont en CDI, 18% sont des TNS ou indépendants, 14% sont en CDD ou intérim, 7% sont retraités. La mensualité totale moyenne avant rachat est de 1 240€, soit 39% des revenus nets du foyer.'},
+      {h:'Taux d\'acceptation par organisme : les chiffres réels', p:'Cofidis accepte 67% des dossiers présentés via notre plateforme — le taux le plus élevé de notre panel. Younited Credit suit à 61%. Les courtiers comme Meilleurtaux affichent 54% d\'acceptation en mobilisant plusieurs partenaires. Les banques traditionnelles contactées en direct : 22% d\'acceptation. L\'écart est massif et peu communiqué.'},
+      {h:'Économies réalisées : ce que les clients ont vraiment économisé', p:'Sur les dossiers acceptés, la réduction mensuelle moyenne est de 387€/mois. Le gain total sur la durée du rachat atteint en moyenne 46 400€. Mais 31% des emprunteurs ont rallongé leur durée de 7 ans en moyenne — un arbitrage à bien calculer avec notre outil de simulation.'},
+      {h:'Régions : où les dossiers passent le mieux', p:'Les taux d\'acceptation varient selon les régions pour des raisons liées aux niveaux de revenus et aux prix immobiliers. Île-de-France (71% d\'acceptation) et Rhône-Alpes (68%) arrivent en tête. Les régions où les dossiers sont les plus complexes : Nord-Pas-de-Calais (52%) et Languedoc-Roussillon (54%).'},
+    ],
+    cta:'Simuler mon rachat de crédit maintenant',
+    cpl:'Rachat de crédit · CPL estimé 60–180€'
+  }
+};
+
+function showArticle(id) {
+  // Redirection vers les vraies pages blog
+  const URLS = {
+    'ficp-1': '/blog/rachat-credit-ficp',
+    'etude-1200': '/blog/rachat-credit-ficp',
+    'cdd-immo': '/blog/credit-immobilier-cdd',
+    'travaux-sg': '/blog/pret-travaux-sans-garantie',
+    'auto-0': '/blog/credit-auto-sans-apport',
+    'regroupement': '/blog/regroupement-credit-immo-conso',
+    'tns-credit': '/blog/credit-independant-tns',
+    'fcc-credit': '/blog/interdit-bancaire-fcc',
+    'simulation-rachat': '/blog/simulation-rachat-credit',
+    'taux-mai': '/blog/taux-immobilier-mai-2025',
+    'cofidis-younited': '/blog/cofidis-vs-younited',
+    'reste-a-vivre': '/blog/rachat-credit-reste-a-vivre',
+  };
+  const url = URLS[id];
+  if(url) {
+    window.location.href = url;
+    return;
+  }
+  // Fallback si page pas encore créée
+  const art = ARTICLES.find(a=>a.id===id);
+  if(!art) return;
+  let html = `
+    <div style="margin-bottom:8px"><span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:5px;background:#f5f0e8;color:var(--navy)">${art.tag}</span></div>
+    <h1 style="font-family:'Fraunces',serif;font-weight:300;font-size:34px;line-height:1.2;color:var(--navy);margin-bottom:14px">${art.title}</h1>
+    <div style="display:flex;gap:16px;font-size:12px;color:var(--slate);margin-bottom:28px;flex-wrap:wrap"><span>📅 ${art.date}</span><span>⏱ ${art.read} de lecture</span></div>
+    <div style="background:var(--white);border-radius:var(--r-lg);padding:28px;margin-bottom:24px;border:1px solid var(--cream2)"><p style="font-size:16px;line-height:1.8;color:var(--navy);font-style:italic">${art.excerpt}</p></div>
+    <div style="background:var(--cream2);border-radius:var(--r);padding:20px;text-align:center;color:var(--slate)">
+      <div style="font-size:32px;margin-bottom:10px">✍️</div>
+      <div style="font-weight:600;color:var(--navy);margin-bottom:6px">Article en cours de rédaction</div>
+      <div style="font-size:13px">Cet article sera publié prochainement. En attendant, comparez les offres directement.</div>
+      <button onclick="showPage('home');setTimeout(()=>document.getElementById('offers').scrollIntoView({behavior:'smooth'}),50)" style="margin-top:16px;background:var(--navy);color:var(--white);font-weight:600;font-size:13px;padding:10px 24px;border:none;border-radius:var(--r);cursor:pointer;font-family:'DM Sans',sans-serif">Voir les offres →</button>
+    </div>
+  `;
+  document.getElementById('article-content').innerHTML = html;
+  showPage('article');
+}
+/* ═══ NAV ACTIVE STYLE ═══ */
+const navStyle = document.createElement('style');
+navStyle.textContent = '.nav-active{color:var(--white)!important;background:rgba(255,255,255,.1)!important;border-radius:7px}.nav-active-gold{background:var(--gold2)!important;color:var(--navy)!important}';
+document.head.appendChild(navStyle);
+
+/* ═══ PAGE SIMULATEUR DÉDIÉ ═══ */
+const SP_DATA = {
+  immo: {min:50000,max:500000,step:5000,val:180000,dMin:5,dMax:30,dVal:20,rate:0.0315,label:'Crédit immobilier',
+    taux:[{org:'Meilleurtaux',rate:'3,15%',note:'Meilleur taux'},
+          {org:'CAFPI',rate:'3,28%',note:'Bon dossier requis'},
+          {org:'Empruntis',rate:'3,35%',note:'CDI seulement'}]},
+  rachat:{min:5000,max:150000,step:1000,val:45000,dMin:3,dMax:20,dVal:10,rate:0.059,label:'Rachat de crédit',
+    taux:[{org:'Cofidis',rate:'5,90%',note:'Accepte FICP'},
+          {org:'Younited',rate:'6,20%',note:'Décision 24h'},
+          {org:'Meilleurtaux',rate:'6,45%',note:'Multi-organismes'}]},
+  conso: {min:1000,max:75000,step:500,val:8000,dMin:1,dMax:7,dVal:3,rate:0.069,label:'Crédit conso',
+    taux:[{org:'Cetelem',rate:'6,80%',note:'BNP Paribas'},
+          {org:'Oney',rate:'7,20%',note:'Réponse immédiate'},
+          {org:'Sofinco',rate:'7,50%',note:'Crédit Agricole'}]},
+  travaux:{min:1000,max:75000,step:1000,val:15000,dMin:1,dMax:10,dVal:5,rate:0.062,label:'Prêt travaux',
+    taux:[{org:'Younited',rate:'5,90%',note:'1k–50k€'},
+          {org:'Cetelem',rate:'6,40%',note:'Sans garantie'},
+          {org:'Franfinance',rate:'6,70%',note:'Sté Générale'}]},
+  auto:  {min:2000,max:80000,step:500,val:18000,dMin:1,dMax:7,dVal:4,rate:0.055,label:'Crédit auto',
+    taux:[{org:'Cetelem Auto',rate:'5,20%',note:'N°1 crédit auto'},
+          {org:'CA Auto Bank',rate:'5,60%',note:'Crédit Agricole'},
+          {org:'Sofinco',rate:'5,90%',note:'100% en ligne'}]},
+};
+let spCurrent = 'immo';
+
+function calcSP() {
+  const d = SP_DATA[spCurrent];
+  const m = parseInt(document.getElementById('sp-montant').value);
+  const dur = parseInt(document.getElementById('sp-duree').value);
+  const r = d.rate / 12;
+  const n = dur * 12;
+  const mens = r > 0 ? m * r / (1 - Math.pow(1+r,-n)) : m/n;
+  const cout = (mens * n) - m;
+  document.getElementById('sp-montant-val').textContent = fmt(m) + ' €';
+  document.getElementById('sp-duree-val').textContent = dur + ' an' + (dur>1?'s':'');
+  document.getElementById('sp-taux-val').textContent = (d.rate*100).toFixed(2).replace('.',',') + '%';
+  document.getElementById('sp-mens-val').textContent = fmt(mens) + ' €';
+  document.getElementById('sp-cout-val').textContent = fmt(cout) + ' €';
+  document.getElementById('sp-total-val').textContent = fmt(mens * n) + ' €';
+  // Tableau taux
+  document.getElementById('sp-taux-table').innerHTML = d.taux.map((t,i)=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:${i<2?'0.5px solid var(--cream2)':'none'}">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--navy)">${t.org}</div>
+        <div style="font-size:11px;color:var(--slate)">${t.note}</div>
+      </div>
+      <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:${i===0?'var(--teal)':'var(--navy)'}">${t.rate}</div>
+    </div>
+  `).join('');
+}
+
+function spTab(el, key) {
+  document.querySelectorAll('.sp-tab').forEach(t=>t.classList.remove('sp-on'));
+  el.classList.add('sp-on');
+  spCurrent = key;
+  const d = SP_DATA[key];
+  const sm = document.getElementById('sp-montant');
+  sm.min=d.min; sm.max=d.max; sm.step=d.step; sm.value=d.val;
+  document.getElementById('sp-m-min').textContent = fmt(d.min)+' €';
+  document.getElementById('sp-m-max').textContent = fmt(d.max)+' €';
+  const sd = document.getElementById('sp-duree');
+  sd.min=d.dMin; sd.max=d.dMax; sd.value=d.dVal;
+  document.getElementById('sp-d-min').textContent = d.dMin+' an'+(d.dMin>1?'s':'');
+  document.getElementById('sp-d-max').textContent = d.dMax+' ans';
+  calcSP();
+}
+
+calcSP();
+
+
+const PARTNERS = [
+  {logo:'YC',bg:'#e8f0ff',fg:'#1a3a8a',name:'Younited Credit',stars:'★★★★★',note:'4,7/5',avis:'+77 000 avis · Trustpilot'},
+  {logo:'CF',bg:'#fff4e0',fg:'#7a4a00',name:'Cofidis',stars:'★★★★★',note:'4,7/5',avis:'+39 000 avis · Trustpilot'},
+  {logo:'CE',bg:'#e8f2ff',fg:'#0a3a7a',name:'Cetelem',stars:'★★★★½',note:'4,5/5',avis:'+3 800 avis · Trustpilot'},
+  {logo:'ON',bg:'#fff0e8',fg:'#7a3a10',name:'Oney',stars:'★★★★',note:'4,2/5',avis:'+13 000 avis · Trustpilot'},
+  {logo:'SF',bg:'#eaf5ee',fg:'#1a5e38',name:'Sofinco',stars:'★★★★',note:'4,2/5',avis:'+6 000 avis · Trustpilot'},
+  {logo:'MT',bg:'#eef0ff',fg:'#1a2a7a',name:'Meilleurtaux',stars:'★★★★★',note:'Partenaire',avis:'Courtier N°1 France'},
+];
+const FREE_BADGES = ['✓ 100% gratuit','✓ Sans engagement','✓ Aucun justificatif requis','✓ Réponse immédiate','✓ Comparateur indépendant','✓ Aucun démarchage'];
+
+function buildStrip() {
+  const track = document.getElementById('strip-track');
+  if(!track) return;
+  let html = '';
+  for(let pass=0;pass<2;pass++){
+    PARTNERS.forEach(p=>{
+      html+=`<div class="strip-item">
+        <div class="strip-logo" style="background:${p.bg};color:${p.fg}">${p.logo}</div>
+        <div class="strip-info">
+          <div class="strip-name">${p.name}</div>
+          <div class="strip-stars">${p.stars} <span style="color:var(--navy);font-weight:700">${p.note}</span></div>
+          <div class="strip-count">${p.avis}</div>
+        </div>
+      </div>`;
+    });
+    FREE_BADGES.forEach(b=>{
+      html+=`<div class="strip-free"><div class="strip-free-badge">${b}</div></div>`;
+    });
+  }
+  track.innerHTML = html;
+}
+buildStrip();
+
+</script>
+<script>
+/* ═══ DATA ═══ */
+const OFFERS = [
+  {cat:'rachat',featured:true,logo:'CF',bg:'#fff8e6',fg:'#7a5a00',
+   name:'Cofidis',
+   desc:'Spécialiste du rachat de crédit depuis 40 ans. Réponse sous 24h, accepte les profils complexes.',
+   tags:['Réponse 24h','Profils difficiles','Sans frais de dossier'],
+   rate:'5,90%',badge:'Meilleure offre'},
+  {cat:'immo',featured:false,logo:'MT',bg:'#f0f4ff',fg:'#0a2060',
+   name:'Meilleurtaux',
+   desc:'Le courtier N°1 en France. Une seule simulation compare 50 banques partenaires simultanément.',
+   tags:['50 banques comparées','Conseil gratuit','Accompagnement dossier'],
+   rate:'3,15%',badge:''},
+  {cat:'travaux',featured:false,logo:'YC',bg:'#f0f5ff',fg:'#0a3060',
+   name:'Younited Credit',
+   desc:'100% en ligne, décision immédiate. Prêts de 1 000 à 50 000€ pour tous vos projets.',
+   tags:['Décision immédiate','1 000 à 50 000€','Dossier 100% en ligne'],
+   rate:'5,90%',badge:''},
+  {cat:'conso',featured:false,logo:'CE',bg:'#f0f5ff',fg:'#0a3a80',
+   name:'Cetelem',
+   desc:'Filiale de BNP Paribas. Fonds débloqués en 24h, taux compétitifs sur tous les projets.',
+   tags:['Fonds en 24h','BNP Paribas','Taux compétitif'],
+   rate:'6,80%',badge:''},
+  {cat:'conso',featured:false,logo:'ON',bg:'#fff4f0',fg:'#7a2a0a',
+   name:'Oney',
+   desc:'Paiement en 3x ou 4x sans frais, ou prêt personnel flexible. Interface simple et rapide.',
+   tags:['Paiement 3x/4x','Sans frais','Réponse immédiate'],
+   rate:'7,20%',badge:''},
+];
+
+let currentFilter = 'all';
+
+function renderOffers(filter) {
+  const list = OFFERS.filter(o => filter === 'all' || o.cat === filter);
+  document.getElementById('offers-grid').innerHTML = list.map(o => `
+    <div class="offer-card${o.featured?' featured':''}">
+      ${o.featured ? '<div class="offer-badge">⭐ Meilleure offre</div>' : ''}
+      <div class="offer-logo" style="background:${o.bg};color:${o.fg}">${o.logo}</div>
+      <div class="offer-info">
+        <div class="offer-name">${o.name}</div>
+        <div class="offer-desc">${o.desc}</div>
+        <div class="offer-tags">${o.tags.map(t=>`<span class="tag tag-teal">${t}</span>`).join('')}</div>
+      </div>
+      <div class="offer-right">
+        <div class="offer-rate-big">${o.rate}</div>
+        <div class="offer-rate-lbl">TAEG min.</div>
+        <button class="offer-cta" onclick="handleOfferClick(this)">Obtenir ce taux →</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterOffers(btn, f) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  currentFilter = f;
+  renderOffers(f);
+}
+
+renderOffers('all');
+
+/* ═══ CAPTURE EMAIL NON-BLOQUANTE ═══ */
+// S'affiche APRÈS le clic, dans la carte — ne bloque pas la redirection
+function handleOfferClick(btn) {
+  incrementCount();
+  const card = btn.closest('.offer-card');
+  // Si déjà cliqué sur cette carte, ne pas redoubler
+  if(card.querySelector('.email-capture-row')) return;
+  // Redirection immédiate (aucun blocage)
+  // TODO: remplacer # par le vrai lien affilié Awin/Affilae
+  // window.open('LIEN_AFFILIÉ', '_blank');
+  // Affiche la capture email sous le bouton, non-bloquante
+  btn.textContent = '✓ Accès ouvert — offre disponible';
+  btn.style.background = 'var(--teal)';
+  btn.style.color = 'var(--white)';
+  btn.disabled = true;
+  const row = document.createElement('div');
+  row.className = 'email-capture-row';
+  row.style.cssText = 'margin-top:10px;display:flex;flex-direction:column;gap:6px;animation:fadeUp .3s ease';
+  row.innerHTML = `
+    <div style="font-size:11px;color:var(--slate);line-height:1.4">📩 Recevoir un récapitulatif de cette offre ?</div>
+    <div style="display:flex;gap:6px">
+      <input type="email" placeholder="Votre email" class="email-cap-input" style="flex:1;padding:7px 10px;border:1px solid var(--cream2);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--cream)">
+      <button onclick="submitCapture(this)" style="background:var(--navy);color:var(--white);font-size:11px;font-weight:700;padding:7px 12px;border:none;border-radius:7px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap">Oui →</button>
+      <button onclick="this.closest('.email-capture-row').remove()" style="background:none;border:none;color:var(--slate);font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap">Non merci</button>
+    </div>
+  `;
+  btn.parentNode.appendChild(row);
+}
+
+function submitCapture(btn) {
+  const input = btn.parentNode.querySelector('.email-cap-input');
+  const email = input.value.trim();
+  if(!email || !email.includes('@')) { input.style.borderColor='var(--red)'; return; }
+  // TODO: appel API Brevo ici
+  // fetch('https://api.brevo.com/v3/contacts', { method:'POST', ... })
+  btn.closest('.email-capture-row').innerHTML = '<div style="font-size:11px;color:var(--teal);font-weight:600;padding:4px 0">✓ Récapitulatif envoyé — vérifiez votre boîte !</div>';
+}
+
+
+/* ═══ SIMULATOR ═══ */
+const SIM_DATA = {
+  immo:{min:50000,max:500000,step:5000,val:180000,dMin:5,dMax:30,dVal:20,rate:0.0315},
+  rachat:{min:5000,max:150000,step:1000,val:45000,dMin:3,dMax:20,dVal:10,rate:0.059},
+  conso:{min:1000,max:75000,step:500,val:8000,dMin:1,dMax:7,dVal:3,rate:0.069},
+  travaux:{min:1000,max:75000,step:1000,val:15000,dMin:1,dMax:10,dVal:5,rate:0.062},
+  auto:{min:2000,max:80000,step:500,val:18000,dMin:1,dMax:7,dVal:4,rate:0.055},
+};
+let currentSim = 'immo';
+
+function fmt(n){return new Intl.NumberFormat('fr-FR').format(Math.round(n));}
+
+function calcSim(){
+  const d = SIM_DATA[currentSim];
+  const m = parseInt(document.getElementById('sl-m').value);
+  const dur = parseInt(document.getElementById('sl-d').value);
+  const r = d.rate / 12;
+  const n = dur * 12;
+  const mens = r > 0 ? m * r / (1 - Math.pow(1+r,-n)) : m/n;
+  const cout = (mens * n) - m;
+  document.getElementById('s-montant').textContent = fmt(m) + ' €';
+  document.getElementById('s-duree').textContent = dur + ' an' + (dur>1?'s':'');
+  document.getElementById('s-mens').textContent = fmt(mens) + ' €';
+  document.getElementById('s-cout').textContent = fmt(cout) + ' €';
+}
+
+function simTab(el, key) {
+  document.querySelectorAll('.sim-tab').forEach(t => t.classList.remove('on'));
+  el.classList.add('on');
+  currentSim = key;
+  const d = SIM_DATA[key];
+  const sm = document.getElementById('sl-m');
+  sm.min=d.min; sm.max=d.max; sm.step=d.step; sm.value=d.val;
+  const sd = document.getElementById('sl-d');
+  sd.min=d.dMin; sd.max=d.dMax; sd.value=d.dVal;
+  calcSim();
+}
+
+calcSim();
+
+/* ═══ QUIZ ═══ */
+let qStep = 1;
+const qAnswers = {};
+
+function pickOpt(el, step) {
+  el.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  qAnswers[step] = el.dataset.val;
+}
+
+function nextQ(n) {
+  goQ(n);
+}
+
+function goQ(n) {
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('qs' + n).classList.add('active');
+  for(let i=1;i<=4;i++){
+    const p = document.getElementById('qp'+i);
+    if(i<n) p.className='qp done';
+    else if(i===n) p.className='qp active';
+    else p.className='qp';
+  }
+  qStep = n;
+}
+
+function showQuizResult() {
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('qs-result').classList.add('active');
+  document.querySelectorAll('.qp').forEach(p => p.className='qp done');
+}
+
+/* ═══ RACHAT CALCULATOR ═══ */
+function calcRachat() {
+  const mens = parseInt(document.getElementById('cl-mens').value);
+  const cap = parseInt(document.getElementById('cl-cap').value);
+  const dur = parseInt(document.getElementById('cl-dur').value);
+  const taux = parseFloat(document.getElementById('cl-taux').value);
+  document.getElementById('cv-mens').textContent = fmt(mens) + ' €';
+  document.getElementById('cv-cap').textContent = fmt(cap) + ' €';
+  document.getElementById('cv-dur').textContent = dur + ' ans';
+  document.getElementById('cv-taux').textContent = taux.toFixed(1) + '%';
+
+  const newRate = 0.059;
+  const r = newRate / 12;
+  const n = dur * 12;
+  const newMens = cap * r / (1 - Math.pow(1+r,-n));
+  const eco = mens - newMens;
+  const ecoTotal = eco * n;
+
+  document.getElementById('cr-eco').textContent = (eco>0?'+ ':'')+fmt(Math.abs(eco))+' €';
+  document.getElementById('cr-avant').textContent = fmt(mens)+' €';
+  document.getElementById('cr-apres').textContent = fmt(newMens)+' €';
+  document.getElementById('cr-mois').textContent = (eco>0?'+ ':'-')+fmt(Math.abs(eco))+' €';
+  document.getElementById('cr-total').textContent = (ecoTotal>0?'+ ':'-')+fmt(Math.abs(ecoTotal))+' €';
+  document.getElementById('cr-taux').textContent = (newRate*100).toFixed(2)+'%';
+}
+
+calcRachat();
+
+/* ═══ COMPTEUR DE SIMULATIONS ═══ */
+// Stocké en localStorage — persist entre sessions sur le même navigateur
+// Seuil d'affichage : 1 000 simulations
+const COUNTER_KEY = 'tauxnet_sim_count';
+const COUNTER_SHOW = 1000;
+
+function getCount() {
+  return parseInt(localStorage.getItem(COUNTER_KEY) || '0');
+}
+function incrementCount() {
+  const n = getCount() + 1;
+  localStorage.setItem(COUNTER_KEY, n);
+  updateCounterDisplay(n);
+  return n;
+}
+function updateCounterDisplay(n) {
+  const el = document.getElementById('sim-counter-block');
+  if(!el) return;
+  if(n >= COUNTER_SHOW) {
+    el.style.display = 'flex';
+    const numEl = document.getElementById('sim-counter-num');
+    if(numEl) {
+      // Animation compteur
+      const start = Math.max(0, n - 30);
+      let current = start;
+      const step = () => {
+        current = Math.min(current + 1, n);
+        numEl.textContent = new Intl.NumberFormat('fr-FR').format(current);
+        if(current < n) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+// Déclencher +1 à chaque clic sur "Voir les meilleures offres" du simulateur
+document.addEventListener('click', function(e) {
+  if(e.target && e.target.closest && e.target.closest('.btn-primary')) {
+    incrementCount();
+  }
+  // Aussi sur chaque clic "Obtenir ce taux"
+  if(e.target && e.target.classList && e.target.classList.contains('offer-cta')) {
+    incrementCount();
+  }
+});
+
+// Init affichage au chargement
+updateCounterDisplay(getCount());
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tauxnet.fr/sitemap.xml
