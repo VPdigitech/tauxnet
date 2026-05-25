@@ -24,7 +24,7 @@
   --r:10px;--r-lg:16px;--r-xl:24px;
 }
 html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;font-size:15px;overflow-x:hidden;max-width:100vw;width:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;font-size:15px;overflow-x:clip;max-width:100vw;width:100%}
 
 .sp-tab{padding:8px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:var(--white);color:var(--slate);border:1.5px solid var(--cream2);transition:.15s;font-family:'DM Sans',sans-serif}
 .sp-tab:hover{border-color:var(--navy);color:var(--navy)}
@@ -390,7 +390,7 @@ footer{background:var(--navy);padding:40px 16px;width:100%;box-sizing:border-box
           <div class="sr-item"><div class="sr-num" id="s-mens">849 €</div><div class="sr-lbl">/ mois estimé</div></div>
           <div class="sr-item"><div class="sr-num" id="s-cout">23 760 €</div><div class="sr-lbl">coût du crédit</div></div>
         </div>
-        <button class="btn-primary" onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})">
+        <button class="btn-primary" onclick="smoothScroll('offers')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           Voir les meilleures offres
         </button>
@@ -480,7 +480,7 @@ footer{background:var(--navy);padding:40px 16px;width:100%;box-sizing:border-box
             <div class="qro"><div class="qro-name">Younited</div><div class="qro-rate">6,20%</div><div class="qro-cpl">Décision immédiate</div></div>
             <div class="qro"><div class="qro-name">Meilleurtaux</div><div class="qro-rate">6,45%</div><div class="qro-cpl">50 banques comparées</div></div>
           </div>
-          <button class="btn-quiz-cta" onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})">Voir les offres détaillées →</button>
+          <button class="btn-quiz-cta" onclick="smoothScroll('offers')">Voir les offres détaillées →</button>
         </div>
       </div>
     </div>
@@ -552,7 +552,7 @@ footer{background:var(--navy);padding:40px 16px;width:100%;box-sizing:border-box
             <div class="crc-row"><span class="crc-row-label">Économie totale</span><span class="crc-row-val positive" id="cr-total">+ 47 640 €</span></div>
             <div class="crc-row"><span class="crc-row-label">Taux de rachat estimé</span><span class="crc-row-val" id="cr-taux">5,90%</span></div>
           </div>
-          <button class="btn-calc-cta" onclick="document.getElementById('offers').scrollIntoView({behavior:'smooth'})">Obtenir ce taux gratuitement →</button>
+          <button class="btn-calc-cta" onclick="smoothScroll('offers')">Obtenir ce taux gratuitement →</button>
         </div>
       </div>
     </div>
@@ -1300,6 +1300,7 @@ let currentSim = 'immo';
 
 function fmt(n){return new Intl.NumberFormat('fr-FR').format(Math.round(n));}
 
+function smoothScroll(id){var el=document.getElementById(id);if(!el)return;var top=el.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:top,behavior:"smooth"})}
 function calcSim(){
   const d = SIM_DATA[currentSim];
   const m = parseInt(document.getElementById('sl-m').value);
