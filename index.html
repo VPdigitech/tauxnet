@@ -1107,7 +1107,9 @@ const SP_DATA = {
           {org:'CA Auto Bank',rate:'5,60%',note:'Crédit Agricole'},
           {org:'Sofinco',rate:'5,90%',note:'100% en ligne'}]},
 };
-let spCurrent = 'immo';
+let spCurrent = "immo";
+function fmt(n){return new Intl.NumberFormat("fr-FR").format(Math.round(n));}
+
 
 function calcSP() {
   const d = SP_DATA[spCurrent];
@@ -1298,7 +1300,7 @@ const SIM_DATA = {
 };
 let currentSim = 'immo';
 
-function fmt(n){return new Intl.NumberFormat('fr-FR').format(Math.round(n));}
+
 
 function smoothScroll(id){var el=document.getElementById(id);if(!el)return;var top=el.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:top,behavior:"smooth"})}
 function calcSim(){
